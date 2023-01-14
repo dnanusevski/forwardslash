@@ -48,20 +48,7 @@ export default class PageController {
     }
 
     checkout(){
-
-        console.log(this.cart.items);
-        /*
-                await APIClient.post('Purchase', [
-            {
-                product_id: 73,
-                amount: 21
-            },
-            {
-                product_id: 22,
-                amount: 21
-            }
-        ]);
-        */
+        this.productRepo.checkout(this.cart.items);
     }
     
  

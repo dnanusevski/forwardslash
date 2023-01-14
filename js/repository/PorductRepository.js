@@ -5,8 +5,24 @@ export default class ProductRepository {
     }
 
     async getProduct(url, data){
-        let products = await this.apiClient.get(url, data);
-        return products;
+        try{
+            let products = await this.apiClient.get(url, data);
+            return products;
+        } catch (e){
+            console.log(e);
+            // to return something so that we know what to do
+        }
+        
+    }
+
+    async checkout(items){
+        console.log(items);
+        try{
+            let result = await this.apiClient.post('Purchase'. items);
+        } catch (e){
+            console.log(e);
+            // to return something so that we know what to do
+        }
     }
     
 }

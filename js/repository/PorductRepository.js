@@ -4,6 +4,10 @@ export default class ProductRepository {
         this.apiClient = client;
     }
 
+    /**
+	* @param string url
+	* @return array
+	*/
     async getProduct(url, data){
         try{
             let products = await this.apiClient.get(url, data);
@@ -14,7 +18,10 @@ export default class ProductRepository {
         }
         
     }
-
+    /**
+	* @param array items
+	* ??
+	*/
     async checkout(items){
         console.log(items);
         try{

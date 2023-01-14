@@ -9,6 +9,11 @@ export default class ComponentFactory {
 	// a method for building HTML component
 	factoryMethod(data) {console.log('calle factoryMethod - should not be called');}
 	// a method to pring Component HTML for later usege
+	
+	/**
+	* @param Object|Array data
+	* @return String
+	*/
 	getComponentHtml(data){
 		console.log('------called getComponentHtpm');
 		return this.factoryMethod(data);

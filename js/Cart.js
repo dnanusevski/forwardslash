@@ -1,8 +1,13 @@
 export default class Cart {
 
-    items = [{id:1, amount:5}];
+    items = [];
 
 	// Add if exists, else add amount
+    /**
+	* @return param int id
+    * @return param int amount
+    * @return void
+	*/
 	addToCart(id, amount) {
        // in app wide state, we should clone or map the array.
         let item = {id:id, amount:parseInt(amount)};
@@ -12,15 +17,21 @@ export default class Cart {
             el.amount += parseInt(amount);
         } else {
             this.items.push(item);
-        }
-        console.log(this.items);
+        }  
     }
-    
+
+    /**
+	* @param int id
+	* @return void
+	*/
     removeFromCart(id){
         let newItems = this.items.filter(el => parseInt(el.id) !== parseInt(id));
         this.items = newItems;
     }
 
+    /**
+	* @return void
+	*/
     getCartitems(){
         return this.items;
     }

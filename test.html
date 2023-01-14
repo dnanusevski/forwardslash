@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+      
+        <script type="module">
+			import ProductComponentFactory from "./js/factory/ProductComponentFactory.js";
+			
+			const dataObj = {
+				id: 1,
+				name: 'Toilet paper - extra funny',
+				photo: 'https://m.media-amazon.com/images/I/9133wpvx-uL._AC_SY355_.jpg',
+				price: 34.50
+			}
+
+
+			const dataArr = [
+				{
+					id: 1,
+					name: 'Toilet paper - extra funny',
+					photo: 'https://m.media-amazon.com/images/I/9133wpvx-uL._AC_SY355_.jpg',
+					price: 34.50
+				},
+				{
+					id: 2,
+					name: 'Toilet paper 2 - extra funny',
+					photo: 'https://m.media-amazon.com/images/I/9133wpvx-uL._AC_SY355_.jpg',
+					price: 36.50
+				},
+			];
+
+			let pcf = new ProductComponentFactory();
+
+			let html = await pcf.getComponentHtml(dataObj);
+
+			console.log(html);
+		</script>
+		
+		 <div id="max"></div>
+    </body>
+</html>

@@ -13,26 +13,22 @@ appCart = new Cart();
 
 pageController = new PageController(appCart, productRepo, ccf, scf);
 
-
 pageController.prtintSearchPage();
-//let products = await productRepo.getProduct('SearchProducts');
 
-//let html = await scf.getComponentHtml(products);
-
-//document.getElementById('search_products_container').innerHTML = html;
-
-
-
-
-
-goToCart = async () => {
-    pageController.printCart();
-
-}
-
-
-
-
+goToCart = async (what) => {
+  // what === "cart" ? pageController.printCart() : pageController.prtintSearchPage();
+  switch (what) {
+    case "cart":
+      pageController.printCart();
+      break;
+    case "search":
+      pageController.prtintSearchPage();
+      break;
+    case "checkout":
+      pageController.checkout();
+      break;
+  }
+};
 
 //let product = await productRepo.getProduct('GetProduct', {id: 1});
 /*
@@ -58,10 +54,6 @@ await APIClient.post('Purchase', [
     }
 ]); // APIClient will do a console.log()
 */
-
-
-
-
 
 /*
 // Regular promise examples

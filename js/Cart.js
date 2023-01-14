@@ -17,15 +17,13 @@ export default class Cart {
     }
     
     removeFromCart(id){
-        console.log('-----------!!!!-----------'+id);
-
-        let newItems = this.items.filter(el=>{
-            el.id === id;
-        });
+        let newItems = this.items.filter(el => parseInt(el.id) !== parseInt(id));
         this.items = newItems;
     }
 
     getCartitems(){
         return this.items;
     }
+
+   
 }

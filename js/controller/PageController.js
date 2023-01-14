@@ -11,6 +11,8 @@ export default class PageController {
 
 
     async prtintSearchPage(){
+        document.getElementById('js_product_page').style.display = "block";
+        document.getElementById('js_cart_page').style.display = "none";
         let products = await this.productRepo.getProduct('SearchProducts');
         let html = await this.scf.getComponentHtml(products);  
         document.getElementById('search_products_container').innerHTML = html; 
@@ -45,7 +47,22 @@ export default class PageController {
         this.printCart('cart_products_container');
     }
 
-    
+    checkout(){
+
+        console.log(this.cart.items);
+        /*
+                await APIClient.post('Purchase', [
+            {
+                product_id: 73,
+                amount: 21
+            },
+            {
+                product_id: 22,
+                amount: 21
+            }
+        ]);
+        */
+    }
     
  
 }

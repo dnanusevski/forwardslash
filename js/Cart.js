@@ -1,6 +1,6 @@
 export default class Cart {
 
-    items = [];
+    items = [{id:1, amount:5}];
 
 	// Add if exists, else add amount
 	addToCart(id, amount) {
@@ -17,6 +17,15 @@ export default class Cart {
     }
     
     removeFromCart(id){
-        console.log(id);
+        console.log('-----------!!!!-----------'+id);
+
+        let newItems = this.items.filter(el=>{
+            el.id === id;
+        });
+        this.items = newItems;
+    }
+
+    getCartitems(){
+        return this.items;
     }
 }

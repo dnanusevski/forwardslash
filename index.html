@@ -22,6 +22,7 @@
         <script type="text/javascript">
             let APIClient;
             let appCart;
+            let pageController;
             // this should be some page Controller that would should accept 
             // all our classes and not simple as this.
             // but lets slide it for this test
@@ -30,7 +31,7 @@
         </script>
     </head>
     <body>
-        <div class="js_product_page">
+        <div class="js_product_page" id="js_product_page">
             <div class="products js_products">
                 <h1>Search Results</h1>
                 <div id ="search_products_container"></div>
@@ -38,10 +39,11 @@
             <button class="go_to_cart_button js_go_to_cart" onclick="goToCart()">Go to cart</button>
         </div>
 
-        <div class="js_cart_page hidden">
+        <div class="js_cart_page hidden" id="js_cart_page">
             <div class="cart js_cart">
                 <h1>Shopping Cart</h1>
-                <h2>Total: <span class="js_total"></span></h2>
+                <h2>Total: <span class="js_total" id="js_total"></span></h2>
+                <div id ="cart_products_container"></div>
             </div>
             <button class="checkout_button js_checkout" >Checkout</button>
             <button class="search_button js_go_to_search">Back to search</button>

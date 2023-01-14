@@ -1,6 +1,7 @@
 import ComponentFactory from "./ComponentFactory.js";
 
-export default class ProductComponentFactory extends ComponentFactory{
+//should be cart controller
+export default class CartComponentFactory extends ComponentFactory{
 	
 	/**
 	* @param Object|Array data
@@ -44,12 +45,14 @@ export default class ProductComponentFactory extends ComponentFactory{
 		let product_image = clone.querySelector('#product_image');
 		let product_title = clone.querySelector('#product_title');
 		let product_price = clone.querySelector('#product_price');
+		let remove_button = clone.querySelector('#remove_button');
 		
 		//fill it up
 		product_image.src = data.photo;
 		product_title.innerHTML = data.name;
-		product_price.innerHTML = data.price;
-		
+		product_price.innerHTML = data.price + " x " + data.amount;
+		//remove_button pageController
+		remove_button.setAttribute("onclick","pageController.removeCartItem("+data.id+");");
 		return clone.innerHTML;
 	}
 }

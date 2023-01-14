@@ -1,28 +1,40 @@
 import ApiClient from "./base/ApiClient.js";
 import PorductRepository from "./repository/PorductRepository.js";
 import SearchComponentFactory from "./factory/SearchComponentFactory.js";
+import CartComponentFactory from "./factory/CartComponentFactory.js";
+import PageController from "./controller/PageController.js";
 import Cart from "./Cart.js";
 
 let APIClient = new ApiClient();
 let productRepo = new PorductRepository(APIClient);
 let scf = new SearchComponentFactory();
+let ccf = new CartComponentFactory();
 appCart = new Cart();
 
-
-let products = await productRepo.getProduct('SearchProducts');
-//let product = await productRepo.getProduct('GetProduct', {id: 1});
-let html = await scf.getComponentHtml(products);
+pageController = new PageController(appCart, productRepo, ccf, scf);
 
 
-document.getElementById('search_products_container').innerHTML = html;
+pageController.prtintSearchPage();
+//let products = await productRepo.getProduct('SearchProducts');
 
-goToCart = () => {
-    alert('hello');
-    document.getElementById('search_products_container').innerHTML = "";
-    document.getElementById('search_products_container').style.display = "none";
+//let html = await scf.getComponentHtml(products);
+
+//document.getElementById('search_products_container').innerHTML = html;
+
+
+
+
+
+goToCart = async () => {
+    pageController.printCart();
+
 }
 
 
+
+
+
+//let product = await productRepo.getProduct('GetProduct', {id: 1});
 /*
 // Async await examples
 try{

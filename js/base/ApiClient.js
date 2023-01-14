@@ -5,7 +5,6 @@ export default class ApiClient {
         return new Promise((resolve, reject) => {
             switch (url) {
                 case 'SearchProducts':
-					reject(new Exception('NOT_FOUND', 404));
                     resolve(this._getProductMocks());
                     break;
                 case 'GetProduct':
